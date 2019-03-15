@@ -1,22 +1,26 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-    <div class="jumbotron">
-        <table id="1" class="table table-striped table-hover table-bordered">
-            <thead class="thead-dark">
-                <tr> 
-                    <th onclick="sortTableByString(0,1)">Repository</th>
-                    <th>Description</th> 
-                    <th onclick="sortTableByString(2,1)"> Watchers</th> 
-                    <th onclick="sortTableByDate(3,1)" >Updated At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var r in ViewBag.Repositories)
-                {
-                    <tr><td>@r.Name</td> <td>@r.Description</td> <td>@r.Watchers</td><td>@r.UpdatedAt</td></tr>
-                }
-            </tbody>
-
-        </table>
+<div class="jumbotron">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://player.twitch.tv/?channel=ElikBelik77">Watch me code live !</iframe>
     </div>
+    </div>
+    <table id="reposTable" class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th onclick="sortTableByString(0,'reposTable')">Repository</th>
+                <th>Description</th>
+                <th onclick="sortTableByString(2,'reposTable')"> Watchers</th>
+                <th onclick="sortTableByDate(3,'reposTable')">Updated At</th>
+                <th onclick="sortTableByDate(4,'reposTable')">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in ViewBag.Repositories)
+            {
+                <tr><td>@r.Name</td> <td>@r.Description</td> <td>@r.Watchers</td><td>@r.UpdatedAt</td> <td>@r.CreatedAt</td></tr>
+            }
+        </tbody>
+
+    </table>
